@@ -82,3 +82,27 @@ Zowe docs consist of several high-level sections such as Getting Started, User G
 #### Zowe toolkit plugin for IntelliJ IDEA
 
 This proposal is for creating a common library and set of Zowe plugins for IntelliJ IDEA, leveraging API ML for access to z/OS resources and services.
+
+IntelliJ IDEA is one of the most popular integrated development environments among software developers. It is best known for its Java variant, but there are also available options for Kotlin, JavaScript, Python, PHP and others. All these environments are built on same platrform and plugins developed for it can be used in any of the variants (subject to specific modules dependency/independency).  
+
+Currently Zowe features several client applications for access to Zowe Mainframe resources - Zowe CLI for scripting, zLUX for web access, and several plugins for VS Studio Code for graphical desktop access to MF resources and services. While these tools cover wide range of use cases, when it comes to individual developer's taste/choice of tool, the users are limited to use only a single tool for the purpose. Developers however are often reluctant to change there favorite IDE or to use multiple IDEs simultaniously, in order to be able to do their work. This consequently slows down or eventually even prevents the Zowe adoption.
+
+Here in we propose to develop a set of Zowe plugins for the  IntelliJ family of development environments. This will ensure uniform user experience, while adding the possibility to work in their favorite development environment. The plugins will share a common foundation to interface with the IntelliJ platform SDK and to access the Zowe resources through Zowe API ML. 
+
+Currently there exists Zowe plugin for IntelliJ IDEA, which was created during previous Broadcom innovation weeks as a PoC and is not a production grade SW. The plugin allows to access single mainframe LPAR/security domain and to work with datasets and JOBs. This plugin can be used as a foundation for future development. 
+The following features can constitute the roadmap of the IDEA plugin development:
+
+1. Create a library which interfaces the IntelliJ IDEA platform specifics in order to minimize dependencies to IntelliJ SDK changes.
+2. Create (optionaly interface with exisiting) REST client library handling API ML specifics using token security.
+3. Create layer/library with routines to handle API ML security requirements, i.e. handle authentication options and security flows implemented by API ML, namely utilize API ML /Zowe tokens for access to API ML.
+4. Create a simple sample plugin based on the libraries above.
+5. Implement token lifecycle client side routines - login/logout/refresh/revoke etc.
+6. Allow for multiple connections to different LPARs/Sysplex environments. 
+7. Build foundations / create UI framework for simutineous visualization and control of multiple MF systems.
+8. Implement the most important foundational Zowe Explorer APIs like datasets and Jobs access.
+9. Add more plugins similar to the Visual Studio Code Zowe plugin/s.
+10. Extend the plugin set with additional plugins empowered by using APIs of specific MF products.
+
+
+The high level capabilities list above can be used to substract a number of concrete tasks to be acomplished in the course of the OMF/Zowe mentorship program. Items 1. to 4. provide sufficient scope and it can be trimmed down if necessary
+
