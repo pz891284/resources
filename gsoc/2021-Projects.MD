@@ -78,3 +78,7 @@ Zowe docs consist of several high-level sections such as Getting Started, User G
 #### Implement some key strategic issues that have been brought forward by the community
 
 #### Improve the Advanced Topics chapter of the course.
+
+#### Zowe toolkit plugin for IntelliJ IDEA
+
+This proposal is for creating a common library and set of Zowe plugins for IntelliJ IDEA, leveraging API ML for access to z/OS resources and services.
